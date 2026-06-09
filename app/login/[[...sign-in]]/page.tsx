@@ -9,8 +9,6 @@ export const metadata: Metadata = {
 };
 
 export default function LoginPage() {
-  const hasClerkKey = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
-
   return (
     <div className="min-h-screen grid lg:grid-cols-2">
       {/* Left visual panel */}
@@ -69,39 +67,20 @@ export default function LoginPage() {
             <p className="mt-2 text-muted">Sign in to continue building your startup future.</p>
           </div>
 
-          {hasClerkKey ? (
-            <SignIn
-              fallbackRedirectUrl="/feed"
-              signUpUrl="/signup"
-              appearance={{
-                elements: {
-                  rootBox: "w-full",
-                  card: "shadow-none border border-border rounded-3xl bg-white p-8 w-full max-w-full",
-                  socialButtonsBlockButton: "rounded-2xl border border-border bg-white hover:bg-surface text-ink font-semibold h-11",
-                  formButtonPrimary: "rounded-2xl bg-primary hover:bg-primary-700 text-white font-semibold h-11",
-                  formFieldInput: "rounded-xl border border-border h-11 text-sm focus:ring-primary focus:border-primary",
-                  footerActionLink: "text-primary font-semibold"
-                }
-              }}
-            />
-          ) : (
-            <div className="rounded-3xl border border-border bg-white p-8 text-center space-y-4">
-              <div className="grid size-14 mx-auto place-items-center rounded-2xl bg-surface text-muted">
-                <Sparkles size={24} />
-              </div>
-              <h2 className="font-bold text-ink">Demo Mode — Auth Disabled</h2>
-              <p className="text-sm text-muted max-w-xs mx-auto">
-                Add <code className="bg-surface px-1 rounded text-xs">NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY</code> and{" "}
-                <code className="bg-surface px-1 rounded text-xs">CLERK_SECRET_KEY</code> to your{" "}
-                <code className="bg-surface px-1 rounded text-xs">.env.local</code> to enable authentication.
-              </p>
-              <div className="pt-4 border-t border-border">
-                <Link href="/feed" className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
-                  Preview platform without auth →
-                </Link>
-              </div>
-            </div>
-          )}
+          <SignIn
+            fallbackRedirectUrl="/feed"
+            signUpUrl="/signup"
+            appearance={{
+              elements: {
+                rootBox: "w-full",
+                card: "shadow-none border border-border rounded-3xl bg-white p-8 w-full max-w-full",
+                socialButtonsBlockButton: "rounded-2xl border border-border bg-white hover:bg-surface text-ink font-semibold h-11",
+                formButtonPrimary: "rounded-2xl bg-primary hover:bg-primary-700 text-white font-semibold h-11",
+                formFieldInput: "rounded-xl border border-border h-11 text-sm focus:ring-primary focus:border-primary",
+                footerActionLink: "text-primary font-semibold"
+              }
+            }}
+          />
 
           <p className="mt-6 text-center text-sm text-muted">
             Don&apos;t have an account?{" "}

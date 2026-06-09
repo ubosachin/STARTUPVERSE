@@ -35,17 +35,14 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  const hasClerkKey = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY);
-  const body = (
-    <body className={`${inter.variable} font-sans antialiased`}>
-      {children}
-      <ToastProvider />
-    </body>
-  );
-
   return (
-    <html lang="en">
-      {hasClerkKey ? <ClerkProvider>{body}</ClerkProvider> : body}
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={`${inter.variable} font-sans antialiased`}>
+          {children}
+          <ToastProvider />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

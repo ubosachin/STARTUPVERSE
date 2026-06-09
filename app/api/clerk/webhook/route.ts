@@ -42,10 +42,11 @@ export async function POST(req: NextRequest) {
 
 
   if (evt.type === "user.created") {
-    const { id: clerkId, email_addresses, username, first_name, last_name, image_url } = evt.data;
+    const { id: clerkId, email_addresses, username, first_name, last_name, image_url, unsafe_metadata } = evt.data;
     const email = email_addresses?.[0]?.email_address;
     const fullName = [first_name, last_name].filter(Boolean).join(" ") || email?.split("@")[0] || "User";
     const safeUsername = username || email?.split("@")[0] || clerkId.slice(0, 12);
+    const selectedRole = unsafe_metadata?.role || "builder";
 
     const { data: user, error: userErr } = await supabase
       .from("users")
@@ -53,7 +54,7 @@ export async function POST(req: NextRequest) {
         clerk_id: clerkId,
         email,
         username: safeUsername,
-        role: "builder",
+        role: selectedRole,
         subscription_tier: "free"
       })
       .select("id")
