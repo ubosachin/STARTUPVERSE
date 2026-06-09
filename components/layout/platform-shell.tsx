@@ -114,7 +114,7 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
             <Avatar name={profile?.full_name || user?.username || "User"} size="sm" />
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-bold text-ink group-hover:text-primary transition-colors">
-                {profile?.full_name || user?.username || "Guest User"}
+                {profile?.full_name || user?.username || "New User"}
               </p>
               <p className="truncate text-[10px] font-semibold text-muted capitalize">
                 {user?.role || "Builder"}
