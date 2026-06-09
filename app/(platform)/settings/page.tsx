@@ -24,7 +24,7 @@ export default async function SettingsPage() {
     .from("profiles")
     .select("*")
     .eq("user_id", dbUser.id)
-    .single();
+    .maybeSingle();
 
   return <SettingsClient initialProfile={profile} initialUser={dbUser} />;
 }
