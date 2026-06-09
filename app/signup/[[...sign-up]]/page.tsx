@@ -4,6 +4,7 @@ import { SignUp } from "@clerk/nextjs";
 import { useState } from "react";
 import Link from "next/link";
 import { Sparkles, Users, Handshake, BadgeDollarSign, Rocket, Award } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const roles = [
   { icon: Rocket, label: "Founder", desc: "Building a startup", value: "founder" },
@@ -22,11 +23,8 @@ export default function SignupPage() {
       {/* Left role picker panel */}
       <div className="relative hidden lg:flex flex-col justify-between bg-surface border-r border-border p-12 overflow-hidden">
         <div>
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-white">
-              <Sparkles size={18} />
-            </span>
-            <span className="font-bold text-ink text-lg">StartupVerse</span>
+          <Link href="/">
+            <Logo size="lg" />
           </Link>
 
           <div className="mt-12">
@@ -67,11 +65,8 @@ export default function SignupPage() {
       {/* Right auth panel */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-white p-6 lg:p-12">
         {/* Mobile logo */}
-        <Link href="/" className="flex items-center gap-2.5 mb-10 lg:hidden">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary text-white">
-            <Sparkles size={18} />
-          </span>
-          <span className="font-bold text-ink text-lg">StartupVerse</span>
+        <Link href="/" className="mb-10 lg:hidden">
+          <Logo size="lg" />
         </Link>
 
         <div className="w-full max-w-md">

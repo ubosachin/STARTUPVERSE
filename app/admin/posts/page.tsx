@@ -12,9 +12,6 @@ export const revalidate = 0; // Dynamic data
 
 export default async function AdminPostsPage() {
   const dbUser = await getCurrentDbUser();
-  if (!dbUser || !dbUser.is_admin) {
-    redirect("/feed");
-  }
 
   const supabase = createSupabaseServiceClient();
   if (!supabase) {

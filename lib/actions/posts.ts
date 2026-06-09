@@ -13,14 +13,14 @@ export async function getFeedPostsAction(filter: "recent" | "trending" | "follow
 
   let query = supabase.from("posts").select(`
     *,
-    profiles (
-      full_name,
-      bio,
-      avatar_url
-    ),
     users (
       username,
-      role
+      role,
+      profiles (
+        full_name,
+        bio,
+        avatar_url
+      )
     )
   `);
 
@@ -55,12 +55,12 @@ export async function getFeedPostsAction(filter: "recent" | "trending" | "follow
     .from("comments")
     .select(`
       *,
-      profiles (
-        full_name
-      ),
       users (
         username,
-        role
+        role,
+        profiles (
+          full_name
+        )
       )
     `)
     .in("post_id", postIds)
@@ -100,11 +100,11 @@ export async function getFeedPostsAction(filter: "recent" | "trending" | "follow
       visibility: post.visibility,
       media_urls: post.media_urls || [],
       created_at: post.created_at,
-      authorName: post.profiles?.full_name || post.users?.username || "Anonymous",
+      authorName: post.users?.profiles?.full_name || post.users?.username || "Anonymous",
       authorUsername: post.users?.username || "anonymous",
       authorRole: post.users?.role || "Builder",
-      authorBio: post.profiles?.bio || "",
-      authorAvatarUrl: post.profiles?.avatar_url || "",
+      authorBio: post.users?.profiles?.bio || "",
+      authorAvatarUrl: post.users?.profiles?.avatar_url || "",
       reactionCounts: counts,
       userReacted,
       totalReactions: postReactions.length,
@@ -112,7 +112,7 @@ export async function getFeedPostsAction(filter: "recent" | "trending" | "follow
         id: c.id,
         content: c.content,
         created_at: c.created_at,
-        authorName: c.profiles?.full_name || c.users?.username || "Anonymous",
+        authorName: c.users?.profiles?.full_name || c.users?.username || "Anonymous",
         authorRole: c.users?.role || "Builder"
       })),
       totalComments: postComments.length

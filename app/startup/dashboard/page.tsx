@@ -210,7 +210,7 @@ export default async function StartupDashboardPage() {
                       <span className="flex items-center gap-1"><Heart size={12} />{post.likes_count}</span>
                       <span className="flex items-center gap-1"><MessageSquare size={12} />{post.comments_count}</span>
                       <span className="flex items-center gap-1"><Share2 size={12} />{post.reposts_count}</span>
-                      <span className="ml-auto text-[10px]">{new Date(post.created_at).toLocaleDateString()}</span>
+                      <span className="ml-auto text-[10px]">{new Date(post.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</span>
                     </div>
                   </div>
                 ))}

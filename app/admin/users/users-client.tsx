@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar } from "@/components/ui/avatar";
 import { Tabs } from "@/components/ui/tabs";
 import { toast } from "@/components/ui/toast";
-import { adminToggleVerifyUserAction } from "@/lib/actions/admin";
+import { adminToggleVerifyUserAction, adminUpdateUserRoleAction } from "@/lib/actions/admin";
 import { useRouter } from "next/navigation";
 
 const roles = ["all", "founder", "investor", "cofounder", "builder", "advisor", "admin"];
@@ -48,7 +48,7 @@ export function UsersClient({ initialUsers }: UsersClientProps) {
       username: u.username,
       email: u.email,
       role: u.role?.toLowerCase() || "builder",
-      joined: new Date(u.created_at).toLocaleDateString(),
+      joined: new Date(u.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }),
       posts: postCount,
       is_verified: u.is_verified,
       is_admin: u.is_admin,
@@ -74,6 +74,23 @@ export function UsersClient({ initialUsers }: UsersClientProps) {
         router.refresh();
       } else {
         toast.error(res.error || "Failed to update verification status.");
+      }
+    } catch (err: any) {
+      toast.error(err.message || "An error occurred.");
+    } finally {
+      setIsPending(null);
+    }
+  };
+
+  const handleRoleChange = async (userId: string, newRole: string) => {
+    setIsPending(userId + "role");
+    try {
+      const res = await adminUpdateUserRoleAction(userId, newRole);
+      if (res.success) {
+        toast.success(`Role updated successfully.`);
+        router.refresh();
+      } else {
+        toast.error(res.error || "Failed to update role.");
       }
     } catch (err: any) {
       toast.error(err.message || "An error occurred.");
@@ -147,7 +164,16 @@ export function UsersClient({ initialUsers }: UsersClientProps) {
                       </div>
                     </td>
                     <td className="px-5 py-4">
-                      <Badge className="text-[10px] bg-surface border-border text-muted font-bold capitalize">{user.role}</Badge>
+                      <select
+                        value={user.role}
+                        onChange={(e) => handleRoleChange(user.id, e.target.value)}
+                        disabled={isPending === user.id + "role"}
+                        className="text-xs font-semibold bg-surface border border-border rounded-lg px-2 py-1 text-ink focus:outline-none focus:ring-1 focus:ring-primary disabled:opacity-50"
+                      >
+                        {roles.filter(r => r !== "all").map(r => (
+                          <option key={r} value={r}>{r.charAt(0).toUpperCase() + r.slice(1)}</option>
+                        ))}
+                      </select>
                     </td>
                     <td className="px-5 py-4 text-muted">{user.posts}</td>
                     <td className="px-5 py-4 text-muted">{user.joined}</td>

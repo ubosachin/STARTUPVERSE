@@ -1,7 +1,7 @@
 import { SignIn } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -15,11 +15,8 @@ export default function LoginPage() {
       <div className="relative hidden lg:flex flex-col justify-between bg-gradient-dark p-12 overflow-hidden">
         <div className="gradient-mesh absolute inset-0 pointer-events-none opacity-40" />
         <div className="relative">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="grid size-9 place-items-center rounded-xl bg-primary text-white">
-              <Sparkles size={18} />
-            </span>
-            <span className="font-bold text-white text-lg">StartupVerse</span>
+          <Link href="/">
+            <Logo size="lg" />
           </Link>
         </div>
 
@@ -54,11 +51,8 @@ export default function LoginPage() {
       {/* Right auth panel */}
       <div className="flex flex-col items-center justify-center min-h-screen bg-surface p-6 lg:p-12">
         {/* Mobile logo */}
-        <Link href="/" className="flex items-center gap-2.5 mb-10 lg:hidden">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary text-white">
-            <Sparkles size={18} />
-          </span>
-          <span className="font-bold text-ink text-lg">StartupVerse</span>
+        <Link href="/" className="mb-10 lg:hidden">
+          <Logo size="lg" />
         </Link>
 
         <div className="w-full max-w-md">

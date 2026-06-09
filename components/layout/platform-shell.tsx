@@ -9,6 +9,7 @@ import {
   Users, TrendingUp
 } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
+import { Logo } from "@/components/ui/logo";
 import { cn } from "@/lib/utils/cn";
 import { useNotifications } from "@/lib/hooks/useNotifications";
 import { getCurrentUserAndProfile } from "@/lib/actions/profiles";
@@ -65,14 +66,8 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
       {/* ── Sidebar ── */}
       <aside className="sticky top-0 hidden h-screen w-64 shrink-0 flex-col rounded-none lg:rounded-3xl border-r lg:border border-border bg-white/95 p-4 shadow-soft backdrop-blur-xl lg:flex lg:top-4 lg:h-[calc(100vh-2rem)]">
         {/* Logo */}
-        <Link href="/feed" className="flex items-center gap-3 px-2 py-1">
-          <span className="grid size-10 place-items-center rounded-2xl bg-primary text-white shadow-glow">
-            <Sparkles size={20} />
-          </span>
-          <span>
-            <span className="block font-bold tracking-tight text-ink">StartupVerse</span>
-            <span className="text-[10px] font-semibold text-muted">Founder OS</span>
-          </span>
+        <Link href="/feed" className="py-2">
+          <Logo size="md" />
         </Link>
 
         {/* Nav links */}

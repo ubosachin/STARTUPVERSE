@@ -18,9 +18,6 @@ export const revalidate = 0; // Fresh metrics
 
 export default async function AdminDashboardPage() {
   const dbUser = await getCurrentDbUser();
-  if (!dbUser || !dbUser.is_admin) {
-    redirect("/feed"); // Redirect non-admins to main feed
-  }
 
   const supabase = createSupabaseServiceClient();
   if (!supabase) {
@@ -89,7 +86,7 @@ export default async function AdminDashboardPage() {
       id: p.id,
       name: p.user.username,
       action: `posted: "${p.content.substring(0, 50)}..."`,
-      time: new Date(p.created_at).toLocaleDateString()
+      time: new Date(p.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })
     }));
 
   return (

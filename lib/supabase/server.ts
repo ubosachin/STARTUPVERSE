@@ -35,7 +35,7 @@ export async function getCurrentDbUser() {
     .single();
 
   if (error || !data) {
-    console.error("Database user resolution failed, attempting to fallback and create user:", error);
+    console.warn("Database user resolution failed, attempting to fallback and create user:", error);
     // Fallback: create user if they don't exist
     const user = await currentUser();
     if (!user) return null;
@@ -57,7 +57,17 @@ export async function getCurrentDbUser() {
       .single();
 
     if (insertError || !newUser) {
-      console.error("Failed to create user fallback:", insertError);
+      if (insertError?.code === "23505") {
+        // Race condition: Webhook just inserted the user. Re-fetch.
+        const { data: existingUser } = await supabase
+          .from("users")
+          .select("*")
+          .eq("clerk_id", clerkId)
+          .single();
+        if (existingUser) return existingUser;
+      }
+      
+      console.error("Failed to create user fallback. Error:", JSON.stringify(insertError, null, 2), "User:", newUser);
       return null;
     }
     

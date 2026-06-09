@@ -46,6 +46,35 @@ export async function adminToggleVerifyUserAction(userId: string) {
 }
 
 /**
+ * Update the role of a user.
+ */
+export async function adminUpdateUserRoleAction(userId: string, newRole: string) {
+  try {
+    await assertAdmin();
+    const supabase = createSupabaseServiceClient();
+    if (!supabase) return { success: false, error: "Database not configured." };
+
+    const isAdmin = newRole.toLowerCase() === "admin";
+
+    const { error } = await supabase
+      .from("users")
+      .update({ 
+        role: newRole,
+        is_admin: isAdmin,
+        updated_at: new Date().toISOString() 
+      })
+      .eq("id", userId);
+
+    if (error) return { success: false, error: error.message };
+
+    revalidatePath("/admin/users");
+    return { success: true };
+  } catch (err: any) {
+    return { success: false, error: err.message };
+  }
+}
+
+/**
  * Toggle verification status of a startup.
  */
 export async function adminToggleVerifyStartupAction(startupId: string) {

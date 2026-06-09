@@ -141,14 +141,14 @@ export async function getConversationsAction() {
     .select(`
       conversation_id,
       user_id,
-      profiles (
-        full_name,
-        bio,
-        avatar_url
-      ),
       users (
         username,
-        role
+        role,
+        profiles (
+          full_name,
+          bio,
+          avatar_url
+        )
       )
     `)
     .in("conversation_id", convIds)
@@ -181,8 +181,8 @@ export async function getConversationsAction() {
     const lastMsg = lastMsgMap.get(conv.id);
     const unreadCount = unreadMap.get(conv.id) || 0;
 
-    const partnerProfile = partner?.profiles;
     const partnerUser = partner?.users;
+    const partnerProfile = partnerUser?.profiles;
 
     return {
       id: conv.id,

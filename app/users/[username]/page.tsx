@@ -224,7 +224,7 @@ export default async function UserProfilePage({ params }: Props) {
                   )}
                   <div>
                     <p className="font-bold text-sm text-ink">{displayName}</p>
-                    <p className="text-[10px] text-muted">{new Date(post.created_at).toLocaleDateString()}</p>
+                    <p className="text-[10px] text-muted">{new Date(post.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}</p>
                   </div>
                 </div>
                 <p className="text-sm text-muted leading-relaxed whitespace-pre-line">{post.content}</p>
@@ -258,7 +258,7 @@ export default async function UserProfilePage({ params }: Props) {
             {[
               { label: "Connections", value: connectionCount },
               { label: "Posts", value: activePosts.length },
-              { label: "Member Since", value: new Date(user.created_at).toLocaleDateString() }
+              { label: "Member Since", value: new Date(user.created_at).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" }) }
             ].map((s) => (
               <div key={s.label} className="flex items-center justify-between text-sm">
                 <span className="text-muted">{s.label}</span>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { Sparkles, Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/ui/logo";
 
 const navLinks = [
   { label: "Features", href: "/#pricing" },
@@ -20,11 +21,8 @@ export function SiteHeader() {
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/60">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 shrink-0">
-          <span className="grid size-9 place-items-center rounded-xl bg-primary text-white shadow-glow">
-            <Sparkles size={18} />
-          </span>
-          <span className="font-bold tracking-tight text-ink text-lg">StartupVerse</span>
+        <Link href="/">
+          <Logo size="md" />
         </Link>
 
         {/* Desktop nav */}

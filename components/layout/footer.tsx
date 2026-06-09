@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Sparkles, Twitter, Linkedin, Github } from "lucide-react";
+import { Twitter, Linkedin, Github, ArrowRight } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 const footerLinks = {
   Platform: [
@@ -35,11 +36,8 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="grid size-9 place-items-center rounded-xl bg-primary text-white">
-                <Sparkles size={18} />
-              </span>
-              <span className="font-bold tracking-tight text-ink">StartupVerse</span>
+            <Link href="/">
+              <Logo size="md" />
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted">
               The professional ecosystem for founders, investors, and startup builders.
