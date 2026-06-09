@@ -172,7 +172,7 @@ export default function NetworkPage() {
 
       {/* Tabs and Search */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border/80 pb-3">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           {([
             { id: "discover", label: "Discover Builders" },
             { id: "connections", label: "My Connections" },
@@ -212,7 +212,7 @@ export default function NetworkPage() {
             placeholder="Search by name, role, skills..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="h-9 w-full rounded-xl border border-border bg-surface pl-9 pr-4 text-xs placeholder:text-muted focus:border-primary focus:ring-primary focus:outline-none"
+            className="h-9 w-full rounded-xl border border-border bg-surface pl-9 pr-4 text-base md:text-xs placeholder:text-muted focus:border-primary focus:ring-primary focus:outline-none"
           />
         </div>
       </div>

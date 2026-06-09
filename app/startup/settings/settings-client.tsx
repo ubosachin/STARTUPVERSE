@@ -137,7 +137,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
 
@@ -148,7 +148,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                     required
                     value={tagline}
                     onChange={(e) => setTagline(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
 
@@ -160,7 +160,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                       required
                       value={industry}
                       onChange={(e) => setIndustry(e.target.value)}
-                      className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                      className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                     />
                   </div>
                   <div>
@@ -168,7 +168,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                     <select
                       value={stage}
                       onChange={(e) => setStage(e.target.value)}
-                      className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary"
+                      className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                     >
                       <option value="idea">Idea</option>
                       <option value="pre-seed">Pre-seed</option>
@@ -186,7 +186,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                     type="url"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
 
@@ -196,7 +196,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                     rows={5}
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-border bg-surface p-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 w-full rounded-xl border border-border bg-surface p-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
 
@@ -229,7 +229,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                   placeholder="e.g. nina@startup.com"
                   value={inviteEmail}
                   onChange={(e) => setInviteEmail(e.target.value)}
-                  className="mt-1 w-full h-9 rounded-lg border border-border bg-white px-2.5 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1 w-full h-9 rounded-lg border border-border bg-white px-2.5 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
               <div>
@@ -240,7 +240,7 @@ export default function StartupSettingsClient({ startup }: StartupSettingsClient
                   placeholder="e.g. Co-Founder & CTO"
                   value={inviteRole}
                   onChange={(e) => setInviteRole(e.target.value)}
-                  className="mt-1 w-full h-9 rounded-lg border border-border bg-white px-2.5 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1 w-full h-9 rounded-lg border border-border bg-white px-2.5 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
 

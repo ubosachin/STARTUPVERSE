@@ -72,7 +72,7 @@ export default function CreateStartupPage() {
                   placeholder="e.g. Stripe, Linear"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
 
@@ -84,7 +84,7 @@ export default function CreateStartupPage() {
                   placeholder="e.g. Financial infrastructure for the internet."
                   value={tagline}
                   onChange={(e) => setTagline(e.target.value)}
-                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
 
@@ -94,7 +94,7 @@ export default function CreateStartupPage() {
                   <select
                     value={industry}
                     onChange={(e) => setIndustry(e.target.value)}
-                    className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="Software">Software</option>
                     <option value="Fintech">Fintech</option>
@@ -109,7 +109,7 @@ export default function CreateStartupPage() {
                   <select
                     value={stage}
                     onChange={(e) => setStage(e.target.value)}
-                    className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="idea">Idea Phase</option>
                     <option value="pre-seed">Pre-Seed</option>
@@ -128,7 +128,7 @@ export default function CreateStartupPage() {
                   placeholder="https://mycompany.com"
                   value={website}
                   onChange={(e) => setWebsite(e.target.value)}
-                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 h-11 w-full rounded-xl border border-border bg-surface px-4 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
 
@@ -140,7 +140,7 @@ export default function CreateStartupPage() {
                   placeholder="Explain what problem your team is solving, your traction to date, and current milestones..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="mt-1.5 w-full rounded-xl border border-border bg-surface p-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 w-full rounded-xl border border-border bg-surface p-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
 

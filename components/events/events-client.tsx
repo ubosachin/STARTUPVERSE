@@ -134,7 +134,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                     placeholder="e.g. Pitch Night & Mixer"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div>
@@ -144,7 +144,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                     required
                     value={startDate}
                     onChange={(e) => setStartDate(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:outline-none"
                   />
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   rows={3}
-                  className="mt-1.5 w-full rounded-xl border border-border bg-white p-3 text-xs focus:border-primary focus:outline-none resize-none"
+                  className="mt-1.5 w-full rounded-xl border border-border bg-white p-3 text-base md:text-xs focus:border-primary focus:outline-none resize-none"
                 />
               </div>
 
@@ -166,7 +166,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                   <select
                     value={eventType}
                     onChange={(e) => setEventType(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="virtual">Virtual (Online)</option>
                     <option value="in-person">In-Person</option>
@@ -178,7 +178,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="networking">Networking Mixer</option>
                     <option value="pitch-night">Pitch Night</option>
@@ -194,7 +194,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                     placeholder={eventType === "virtual" ? "e.g. Zoom link" : "e.g. 100 Pine St, SF"}
                     value={eventType === "virtual" ? meetingUrl : location}
                     onChange={(e) => eventType === "virtual" ? setMeetingUrl(e.target.value) : setLocation(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:outline-none"
                   />
                 </div>
                 <div>
@@ -204,7 +204,7 @@ export default function EventsClient({ initialEvents, userRsvpIds }: EventsClien
                     placeholder="e.g. 100"
                     value={maxAttendees}
                     onChange={(e) => setMaxAttendees(e.target.value)}
-                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:outline-none"
+                    className="mt-1.5 h-10 w-full rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:outline-none"
                   />
                 </div>
               </div>

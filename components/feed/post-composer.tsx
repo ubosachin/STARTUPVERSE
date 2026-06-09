@@ -110,7 +110,7 @@ export function PostComposer({ onPostCreated }: { onPostCreated: () => void }) {
                   value={visibility}
                   onChange={(e) => setVisibility(e.target.value as any)}
                   aria-label="Post visibility"
-                  className="h-9 rounded-xl border border-border bg-white pl-8 pr-8 text-xs font-semibold text-ink/80 focus:border-primary focus:ring-primary appearance-none cursor-pointer"
+                  className="h-11 md:h-9 rounded-xl border border-border bg-white pl-8 pr-8 text-sm md:text-xs font-semibold text-ink/80 focus:border-primary focus:ring-primary appearance-none cursor-pointer"
                 >
                   <option value="public">Anyone</option>
                   <option value="connections">Connections</option>

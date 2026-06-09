@@ -60,29 +60,32 @@ export function SiteHeader() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu (Drawer) */}
       {mobileOpen && (
-        <div className="glass border-t border-border/60 md:hidden animate-slide-down">
-          <nav className="flex flex-col gap-1 p-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-medium text-ink hover:bg-surface"
-              >
-                {link.label}
-              </Link>
-            ))}
-            <div className="mt-3 flex gap-3 border-t border-border pt-3">
-              <Link href="/login" className="flex-1">
-                <Button variant="secondary" className="w-full">Sign in</Button>
-              </Link>
-              <Link href="/signup" className="flex-1">
-                <Button className="w-full">Get started</Button>
-              </Link>
-            </div>
-          </nav>
+        <div className="fixed inset-0 z-40 flex md:hidden mt-16">
+          <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm animate-fade-in" onClick={() => setMobileOpen(false)} />
+          <aside className="relative ml-auto flex w-64 max-w-[80vw] flex-col overflow-y-auto bg-white shadow-xl animate-slide-in-right h-[calc(100vh-64px)] pb-safe">
+            <nav className="flex flex-col gap-1 p-4">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="rounded-xl px-4 py-3 text-sm font-medium text-ink hover:bg-surface"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="mt-3 flex flex-col gap-3 border-t border-border pt-3">
+                <Link href="/login" className="w-full" onClick={() => setMobileOpen(false)}>
+                  <Button variant="secondary" className="w-full">Sign in</Button>
+                </Link>
+                <Link href="/signup" className="w-full" onClick={() => setMobileOpen(false)}>
+                  <Button className="w-full">Get started</Button>
+                </Link>
+              </div>
+            </nav>
+          </aside>
         </div>
       )}
     </header>

@@ -37,7 +37,7 @@ export default function StartupsClient({ initialStartups }: StartupsClientProps)
         <div className="relative flex-1">
           <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={17} />
           <input
-            className="h-11 w-full rounded-2xl border border-border bg-white pl-10 pr-4 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+            className="h-11 w-full rounded-2xl border border-border bg-white pl-10 pr-4 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
             placeholder="Search startups by name, industry, or tagline…"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}

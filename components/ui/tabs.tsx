@@ -19,13 +19,13 @@ interface TabsProps {
 export function Tabs({ tabs, active, onChange, className, variant = "pill" }: TabsProps) {
   if (variant === "underline") {
     return (
-      <div className={cn("flex border-b border-border/80", className)}>
+      <div className={cn("flex w-full overflow-x-auto scrollbar-hide border-b border-border/80", className)}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
             className={cn(
-              "flex items-center gap-2 border-b-2 px-4 pb-3 pt-1 text-sm font-semibold transition-colors",
+              "flex shrink-0 whitespace-nowrap items-center gap-2 border-b-2 px-4 pb-3 pt-1 text-sm font-semibold transition-colors",
               active === tab.id
                 ? "border-primary text-primary"
                 : "border-transparent text-muted hover:text-ink"
@@ -50,13 +50,13 @@ export function Tabs({ tabs, active, onChange, className, variant = "pill" }: Ta
 
   if (variant === "card") {
     return (
-      <div className={cn("flex gap-1 rounded-2xl bg-surface p-1", className)}>
+      <div className={cn("flex flex-wrap gap-1 rounded-2xl bg-surface p-1", className)}>
         {tabs.map((tab) => (
           <button
             key={tab.id}
             onClick={() => onChange(tab.id)}
             className={cn(
-              "flex flex-1 items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition-all",
+              "flex flex-1 whitespace-nowrap items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold transition-all",
               active === tab.id
                 ? "bg-white text-ink shadow-card"
                 : "text-muted hover:text-ink"

@@ -137,7 +137,7 @@ export function ChatPanel() {
       <CardContent className="p-0 flex h-full">
         
         {/* Left Side: Conversations list */}
-        <aside className="w-80 border-r border-border flex flex-col h-full bg-surface/30 shrink-0">
+        <aside className={`w-full md:w-80 border-r border-border flex-col h-full bg-surface/30 shrink-0 ${activeConversationId ? "hidden md:flex" : "flex"}`}>
           <div className="p-4 border-b border-border bg-white flex items-center justify-between">
             <h2 className="font-bold text-ink">Conversations</h2>
             <Badge className="bg-primary/10 text-primary border-0 font-semibold">
@@ -195,12 +195,19 @@ export function ChatPanel() {
         </aside>
 
         {/* Right Side: Message Thread */}
-        <section className="flex-1 flex flex-col h-full bg-white relative min-w-0">
+        <section className={`flex-1 flex-col h-full bg-white relative min-w-0 ${!activeConversationId ? "hidden md:flex" : "flex"}`}>
           {activeConversationId && activeConv ? (
             <>
               {/* Active Conversation Header */}
               <div className="p-4 border-b border-border bg-white flex items-center justify-between">
                 <div className="flex items-center gap-3">
+                  <button 
+                    onClick={() => router.push("/messages")} 
+                    className="md:hidden p-1.5 -ml-2 text-muted hover:bg-surface hover:text-ink rounded-lg transition-colors"
+                    aria-label="Back to conversations"
+                  >
+                    <ChevronLeft size={20} />
+                  </button>
                   <div className="grid size-10 place-items-center rounded-xl bg-ink text-xs font-bold text-white uppercase overflow-hidden">
                     {activeConv.avatarUrl ? (
                       <img src={activeConv.avatarUrl} alt={activeConv.name} className="size-full object-cover" />
@@ -318,7 +325,7 @@ export function ChatPanel() {
                     value={inputText}
                     onChange={(e) => setInputText(e.target.value)}
                     placeholder="Send message securely..."
-                    className="h-10 min-w-0 flex-1 rounded-xl border border-border bg-surface px-4 text-xs placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="h-10 min-w-0 flex-1 rounded-xl border border-border bg-surface px-4 text-base md:text-xs placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                   />
 
                   {/* Emoji Trigger */}

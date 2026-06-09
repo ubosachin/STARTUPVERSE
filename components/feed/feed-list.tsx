@@ -258,7 +258,7 @@ export function FeedList({ filter, refreshTrigger }: { filter: "recent" | "trend
                         variant={isActive ? "primary" : "secondary"}
                         size="sm"
                         onClick={() => handleReaction(post.id, type)}
-                        className={`h-8 rounded-xl px-2.5 text-xs font-semibold gap-1 ${
+                        className={`rounded-xl px-2.5 py-2 md:py-1 md:h-8 text-xs font-semibold gap-1 ${
                           isActive ? "bg-primary text-white" : ""
                         }`}
                       >
@@ -277,7 +277,7 @@ export function FeedList({ filter, refreshTrigger }: { filter: "recent" | "trend
                       variant="secondary"
                       size="sm"
                       onClick={() => setActiveCommentsPostId(activeCommentsPostId === post.id ? null : post.id)}
-                      className={`h-8 rounded-xl text-xs gap-1.5 ${
+                      className={`rounded-xl text-xs gap-1.5 md:h-8 py-2 md:py-1 ${
                         activeCommentsPostId === post.id ? "bg-surface text-primary" : ""
                       }`}
                     >
@@ -289,7 +289,7 @@ export function FeedList({ filter, refreshTrigger }: { filter: "recent" | "trend
                       variant="secondary"
                       size="sm"
                       onClick={() => handleShare(post.id)}
-                      className="h-8 rounded-xl text-xs gap-1.5"
+                      className="rounded-xl text-xs gap-1.5 md:h-8 py-2 md:py-1"
                     >
                       <Send size={14} />
                       <span>{copiedPostId === post.id ? "Copied Link!" : "Share"}</span>
@@ -301,7 +301,7 @@ export function FeedList({ filter, refreshTrigger }: { filter: "recent" | "trend
                     size="sm"
                     onClick={() => handleSave(post.id)}
                     aria-label="Save post"
-                    className={`h-8 rounded-xl text-xs gap-1.5 ${
+                    className={`rounded-xl text-xs gap-1.5 md:h-8 py-2 md:py-1 ${
                       savedPosts.includes(post.id) ? "text-primary bg-primary/5 border-primary/20" : ""
                     }`}
                   >
@@ -321,9 +321,9 @@ export function FeedList({ filter, refreshTrigger }: { filter: "recent" | "trend
                         value={newCommentText}
                         onChange={(e) => setNewCommentText(e.target.value)}
                         placeholder="Add your thoughts to this post..."
-                        className="h-9 min-w-0 flex-1 rounded-xl border border-border bg-surface px-3 text-xs placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                        className="h-11 md:h-9 min-w-0 flex-1 rounded-xl border border-border bg-surface px-3 text-base md:text-xs placeholder:text-muted focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                       />
-                      <Button type="submit" size="sm" className="h-9" disabled={commentingPostId === post.id}>
+                      <Button type="submit" size="sm" className="h-11 md:h-9" disabled={commentingPostId === post.id}>
                         {commentingPostId === post.id ? <Loader2 size={13} className="animate-spin" /> : "Reply"}
                       </Button>
                     </form>

@@ -70,7 +70,7 @@ export default function LoginPage() {
                 card: "shadow-none border border-border rounded-3xl bg-white p-8 w-full max-w-full",
                 socialButtonsBlockButton: "rounded-2xl border border-border bg-white hover:bg-surface text-ink font-semibold h-11",
                 formButtonPrimary: "rounded-2xl bg-primary hover:bg-primary-700 text-white font-semibold h-11",
-                formFieldInput: "rounded-xl border border-border h-11 text-sm focus:ring-primary focus:border-primary",
+                formFieldInput: "rounded-xl border border-border h-11 text-base md:text-sm focus:ring-primary focus:border-primary",
                 footerActionLink: "text-primary font-semibold"
               }
             }}

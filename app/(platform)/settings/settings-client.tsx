@@ -189,7 +189,7 @@ export default function SettingsClient({ initialProfile, initialUser }: Settings
                 id="settings-name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-2xl border border-border bg-surface px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                className="w-full rounded-2xl border border-border bg-surface px-4 py-3 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 placeholder="Your full name"
               />
             </div>
@@ -204,7 +204,7 @@ export default function SettingsClient({ initialProfile, initialUser }: Settings
                 onChange={(e) => setBio(e.target.value)}
                 rows={4}
                 maxLength={500}
-                className="w-full rounded-2xl border border-border bg-surface px-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
+                className="w-full rounded-2xl border border-border bg-surface px-4 py-3 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
                 placeholder="Tell the ecosystem who you are, what you're building, and what you're looking for…"
               />
               <p className="mt-1.5 text-xs text-muted text-right">{bio.length}/500</p>
@@ -221,7 +221,7 @@ export default function SettingsClient({ initialProfile, initialUser }: Settings
                     id="settings-location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
-                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     placeholder="San Francisco, CA"
                   />
                 </div>
@@ -236,7 +236,7 @@ export default function SettingsClient({ initialProfile, initialUser }: Settings
                     id="settings-website"
                     value={website}
                     onChange={(e) => setWebsite(e.target.value)}
-                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     placeholder="https://yoursite.com"
                   />
                 </div>
@@ -262,7 +262,7 @@ export default function SettingsClient({ initialProfile, initialUser }: Settings
                     id={`settings-${social.id}`}
                     value={social.value}
                     onChange={(e) => social.setter(e.target.value)}
-                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
+                    className="w-full rounded-2xl border border-border bg-surface pl-9 pr-4 py-3 text-base md:text-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                     placeholder={social.placeholder}
                   />
                 </div>

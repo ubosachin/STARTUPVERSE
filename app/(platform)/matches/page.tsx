@@ -155,7 +155,7 @@ export default function MatchesPage() {
                 <select
                   value={prefRole}
                   onChange={(e) => setPrefRole(e.target.value)}
-                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-sm focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-base md:text-sm focus:border-primary focus:ring-primary"
                 >
                   <option value="cofounder">Co-Founder</option>
                   <option value="investor">Investor / Angel</option>
@@ -169,7 +169,7 @@ export default function MatchesPage() {
                 <select
                   value={prefIndustry}
                   onChange={(e) => setPrefIndustry(e.target.value)}
-                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-sm focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-base md:text-sm focus:border-primary focus:ring-primary"
                 >
                   <option value="Fintech">Fintech / Web3</option>
                   <option value="Health AI">Health & Biotech</option>
@@ -183,7 +183,7 @@ export default function MatchesPage() {
                 <select
                   value={prefSkill}
                   onChange={(e) => setPrefSkill(e.target.value)}
-                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-sm focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-base md:text-sm focus:border-primary focus:ring-primary"
                 >
                   <option value="React">React / Frontend</option>
                   <option value="AI infra">AI Infra / ML</option>
@@ -197,7 +197,7 @@ export default function MatchesPage() {
                 <select
                   value={prefCommitment}
                   onChange={(e) => setPrefCommitment(e.target.value)}
-                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-sm focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-11 rounded-xl border border-border bg-white px-3 text-base md:text-sm focus:border-primary focus:ring-primary"
                 >
                   <option value="Full-time">Full-time Builder</option>
                   <option value="Part-time">Part-time Partner</option>

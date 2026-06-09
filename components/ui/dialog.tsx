@@ -57,7 +57,7 @@ export function Dialog({ open, onClose, title, description, children, className,
       <div
         ref={dialogRef}
         className={cn(
-          "relative z-10 w-full rounded-3xl bg-white shadow-soft border border-border animate-scale-in",
+          "relative z-10 w-full max-w-[95vw] max-h-[90vh] flex flex-col rounded-3xl bg-white shadow-soft border border-border animate-scale-in",
           sizeMap[size],
           className
         )}
@@ -92,7 +92,7 @@ export function Dialog({ open, onClose, title, description, children, className,
             <X size={16} />
           </button>
         )}
-        <div className="p-6">{children}</div>
+        <div className="p-6 overflow-y-auto">{children}</div>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import {
   BadgeDollarSign, Bell, BriefcaseBusiness, CalendarDays, Compass,
   Handshake, MessageSquare, Rocket, Search, Settings, Sparkles,
-  Users, TrendingUp
+  Users, TrendingUp, Menu, X
 } from "lucide-react";
 import { Avatar } from "@/components/ui/avatar";
 import { Logo } from "@/components/ui/logo";
@@ -41,6 +41,7 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
   const [profile, setProfile] = useState<any>(null);
   const [user, setUser] = useState<any>(null);
   const { unreadCount } = useNotifications();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     async function loadUser() {
@@ -124,6 +125,15 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
         {/* Platform header */}
         <header className="sticky top-0 z-20 border-b border-border bg-white/90 px-4 py-3 backdrop-blur-xl sm:px-6 lg:mx-0 lg:rounded-3xl lg:border lg:shadow-card">
           <div className="flex items-center gap-3">
+            {/* Hamburger (Mobile only) */}
+            <button
+              className="lg:hidden grid size-10 shrink-0 place-items-center rounded-xl border border-border bg-surface text-muted transition hover:border-primary hover:text-primary"
+              onClick={() => setMobileMenuOpen(true)}
+              aria-label="Open menu"
+            >
+              <Menu size={20} />
+            </button>
+
             {/* Search */}
             <div className="relative min-w-0 flex-1">
               <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={17} />
@@ -165,6 +175,45 @@ export function PlatformShell({ children }: { children: React.ReactNode }) {
           {children}
         </div>
       </section>
+
+      {/* ── Mobile Hamburger Drawer ── */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex lg:hidden">
+          <div className="absolute inset-0 bg-ink/40 backdrop-blur-sm animate-fade-in" onClick={() => setMobileMenuOpen(false)} />
+          <aside className="relative flex w-64 max-w-[80vw] flex-col overflow-y-auto bg-white p-4 shadow-xl animate-slide-in-right">
+            <div className="flex items-center justify-between py-2">
+              <Link href="/feed" onClick={() => setMobileMenuOpen(false)}>
+                <Logo size="md" />
+              </Link>
+              <button
+                className="grid size-8 shrink-0 place-items-center rounded-xl bg-surface text-muted"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <X size={16} />
+              </button>
+            </div>
+            <nav className="mt-8 flex-1 space-y-0.5">
+              {platformLinks.map((item) => {
+                const active = isActive(item.href);
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(
+                      "group flex h-10 items-center gap-3 rounded-xl px-3 text-sm font-medium transition-all",
+                      active ? "bg-primary/10 text-primary font-semibold" : "text-muted hover:bg-surface hover:text-ink"
+                    )}
+                  >
+                    <item.icon size={17} className={cn("shrink-0", active ? "text-primary" : "text-muted")} />
+                    <span className="truncate">{item.label}</span>
+                  </Link>
+                );
+              })}
+            </nav>
+          </aside>
+        </div>
+      )}
 
       {/* ── Mobile Bottom Nav ── */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 flex items-center border-t border-border bg-white/95 backdrop-blur-xl pb-safe lg:hidden">

@@ -164,7 +164,7 @@ export default function FundraisingClient({
                 <select
                   value={roundType}
                   onChange={(e) => setRoundType(e.target.value)}
-                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                 >
                   <option value="pre-seed">Pre-Seed</option>
                   <option value="seed">Seed Round</option>
@@ -183,7 +183,7 @@ export default function FundraisingClient({
                   placeholder="e.g. 1500000"
                   value={roundAmount}
                   onChange={(e) => setRoundAmount(e.target.value)}
-                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
               <div>
@@ -193,7 +193,7 @@ export default function FundraisingClient({
                   placeholder="e.g. 8000000"
                   value={roundValuation}
                   onChange={(e) => setRoundValuation(e.target.value)}
-                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
               <div className="sm:col-span-3 flex justify-end gap-2 pt-2">
@@ -220,7 +220,7 @@ export default function FundraisingClient({
                 <select
                   value={selectedInvestorId}
                   onChange={(e) => setSelectedInvestorId(e.target.value)}
-                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                 >
                   {availableInvestors.map((inv) => (
                     <option key={inv.id} value={inv.id}>
@@ -234,7 +234,7 @@ export default function FundraisingClient({
                 <select
                   value={interactionStage}
                   onChange={(e) => setInteractionStage(e.target.value)}
-                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-xs focus:border-primary focus:ring-primary"
+                  className="mt-1.5 w-full h-10 rounded-xl border border-border bg-white px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                 >
                   {PIPELINE_STAGES.map((stg) => (
                     <option key={stg.id} value={stg.id}>
@@ -249,7 +249,7 @@ export default function FundraisingClient({
                   value={interactionNotes}
                   onChange={(e) => setInteractionNotes(e.target.value)}
                   placeholder="Sofia requested a follow-up deck detailing payroll expansion..."
-                  className="mt-1.5 w-full min-h-[70px] rounded-xl border border-border bg-white p-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                  className="mt-1.5 w-full min-h-[70px] rounded-xl border border-border bg-white p-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                 />
               </div>
               <div className="sm:col-span-3 flex justify-end gap-2 pt-2">
@@ -333,12 +333,11 @@ export default function FundraisingClient({
             </CardContent>
           </Card>
 
-          {/* Kanban Board Grid */}
-          <div className="grid gap-4 md:grid-cols-5 h-[480px]">
+          <div className="grid gap-4 md:grid-cols-5 md:h-[480px]">
             {PIPELINE_STAGES.map((stage) => {
               const stageInterests = pipelineInterests.filter((i) => i.stage === stage.id);
               return (
-                <div key={stage.id} className="flex flex-col h-full rounded-2xl bg-surface/50 border border-border/60 p-3">
+                <div key={stage.id} className="flex flex-col h-full min-h-[200px] md:min-h-0 rounded-2xl bg-surface/50 border border-border/60 p-3">
                   <div className="flex justify-between items-center pb-2 border-b border-border/40 mb-3">
                     <span className="text-xs font-bold text-ink uppercase tracking-wider">{stage.label}</span>
                     <Badge className="bg-white text-muted border border-border/60 hover:bg-white">{stageInterests.length}</Badge>
@@ -373,7 +372,7 @@ export default function FundraisingClient({
                               <select
                                 value={interest.stage}
                                 onChange={(e) => updatePipelineStage(interest.id, e.target.value)}
-                                className="h-6 text-[9px] font-bold rounded-lg border border-border/80 bg-white px-1 focus:ring-0 focus:outline-none"
+                                className="h-8 md:h-6 text-sm md:text-[9px] font-bold rounded-lg border border-border/80 bg-white px-1 focus:ring-0 focus:outline-none"
                               >
                                 {PIPELINE_STAGES.map((stg) => (
                                   <option key={stg.id} value={stg.id}>

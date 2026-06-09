@@ -100,7 +100,7 @@ export default function WatchlistClient({ initialWatchlist, initialNotes }: Watc
                     <textarea
                       value={tempNote}
                       onChange={(e) => setTempNote(e.target.value)}
-                      className="w-full rounded-xl border border-border bg-surface px-3 py-2 text-xs resize-none focus:border-primary focus:outline-none"
+                      className="w-full rounded-xl border border-border bg-surface px-3 py-2 text-base md:text-xs resize-none focus:border-primary focus:outline-none"
                       rows={2}
                       placeholder="Add thesis note, status, or follow-up action…"
                     />

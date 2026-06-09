@@ -85,7 +85,7 @@ export function StartupDetailActions({
     <div className="flex flex-col gap-3 w-full">
       {/* Header action buttons */}
       {showHeaderActions && (
-        <div className="flex items-center gap-3 sm:justify-end">
+        <div className="flex flex-wrap items-center gap-2 sm:gap-3 sm:justify-end">
           <Button
             variant={isFollowing ? "secondary" : "primary"}
             size="sm"

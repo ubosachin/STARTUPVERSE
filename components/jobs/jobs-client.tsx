@@ -140,7 +140,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
 
       {/* Tabs and filters */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border/80 pb-3 font-sans">
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
           <button
             onClick={() => setActiveTab("explore")}
             className={`h-9 rounded-xl px-4 text-xs font-bold border transition-all ${
@@ -188,14 +188,14 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
         {activeTab === "explore" && (
           <div className="flex flex-wrap gap-2">
             {/* Search Input */}
-            <div className="relative w-48 sm:w-64">
+            <div className="relative w-full sm:w-64 flex-1">
               <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" size={14} />
               <input
                 type="text"
                 placeholder="Search jobs or startups..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="h-9 w-full rounded-xl border border-border bg-surface pl-9 pr-4 text-xs placeholder:text-muted focus:border-primary focus:ring-primary focus:outline-none"
+                className="h-11 md:h-9 w-full rounded-xl border border-border bg-surface pl-9 pr-4 text-base md:text-xs placeholder:text-muted focus:border-primary focus:ring-primary focus:outline-none"
               />
             </div>
 
@@ -204,7 +204,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
               value={locationFilter}
               onChange={(e) => setLocationFilter(e.target.value)}
               aria-label="Filter by location type"
-              className="h-9 rounded-xl border border-border bg-surface px-3 text-xs font-semibold text-ink/80 focus:border-primary focus:ring-primary"
+              className="h-11 md:h-9 w-full sm:w-auto rounded-xl border border-border bg-surface px-3 text-base md:text-xs font-semibold text-ink/80 focus:border-primary focus:ring-primary"
             >
               <option value="all">All Locations</option>
               <option value="remote">Remote Only</option>
@@ -362,7 +362,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                     placeholder="Founding Full-Stack Engineer (Node/React)"
                     value={jobTitle}
                     onChange={(e) => setJobTitle(e.target.value)}
-                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
                 <div>
@@ -370,7 +370,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                   <select
                     value={jobType}
                     onChange={(e) => setJobType(e.target.value)}
-                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="full-time">Full-time</option>
                     <option value="part-time">Part-time</option>
@@ -387,7 +387,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                   <select
                     value={locationType}
                     onChange={(e) => setLocationType(e.target.value)}
-                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary"
+                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary"
                   >
                     <option value="remote">Remote</option>
                     <option value="hybrid">Hybrid</option>
@@ -401,7 +401,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                     placeholder="e.g. San Francisco, CA"
                     value={jobLocation}
                     onChange={(e) => setJobLocation(e.target.value)}
-                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-xs focus:border-primary focus:ring-primary focus:outline-none"
+                    className="mt-1.5 w-full h-11 rounded-xl border border-border bg-surface px-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none"
                   />
                 </div>
               </div>
@@ -413,7 +413,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                   value={jobDescription}
                   onChange={(e) => setJobDescription(e.target.value)}
                   placeholder="We are looking for a key partner who has scaled Next.js architectures, managed real-time subscriptions, and enjoys greenfield projects..."
-                  className="mt-1.5 w-full min-h-[120px] rounded-xl border border-border bg-surface p-3 text-xs focus:border-primary focus:ring-primary focus:outline-none resize-none"
+                  className="mt-1.5 w-full min-h-[120px] rounded-xl border border-border bg-surface p-3 text-base md:text-xs focus:border-primary focus:ring-primary focus:outline-none resize-none"
                 />
               </div>
 
@@ -460,7 +460,7 @@ export default function JobsClient({ initialJobs, initialApplications, isFounder
                     value={coverLetter}
                     onChange={(e) => setCoverLetter(e.target.value)}
                     placeholder="Hi! I am very interested in this role. I have 4 years of NextJS and Supabase experience, and recently scaled..."
-                    className="mt-1.5 w-full min-h-[140px] rounded-xl border border-border bg-white p-3 text-xs focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
+                    className="mt-1.5 w-full min-h-[140px] rounded-xl border border-border bg-white p-3 text-base md:text-xs focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none"
                   />
                 </div>
 

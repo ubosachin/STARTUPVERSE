@@ -34,8 +34,8 @@ export default function FeedPage() {
       <PostComposer onPostCreated={handlePostCreated} />
 
       {/* Feed Filters */}
-      <div className="flex border-b border-border/80 pb-1.5 items-center justify-between">
-        <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row border-b border-border/80 pb-2 sm:pb-1.5 sm:items-center justify-between gap-3">
+        <div className="flex gap-2 overflow-x-auto no-scrollbar w-full sm:w-auto pb-1 sm:pb-0">
           {([
             { id: "recent", label: "Recent Posts" },
             { id: "trending", label: "Trending Feed" },
@@ -44,7 +44,7 @@ export default function FeedPage() {
             <button
               key={tab.id}
               onClick={() => setFilter(tab.id)}
-              className={`h-8 rounded-xl px-3 text-xs font-semibold border transition-all ${
+              className={`shrink-0 min-h-[44px] md:min-h-8 rounded-xl px-3 text-xs font-semibold border transition-all ${
                 filter === tab.id
                   ? "bg-ink border-ink text-white"
                   : "bg-surface border-border hover:bg-white text-ink/80"
